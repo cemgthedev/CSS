@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Cadastro</title>
+    <link rel="stylesheet" href="style/global.css">
+</head>
+<body>
+    <main>
+        <form name="form" action="">
+            <h2>Tela de Cadastro</h2>
+            <fieldset>
+                <legend>Dados da Conta</legend>
+                <div class="cell">
+                    <label for="campo-email">Email</label>
+                    <br>
+                    <input id="campo-email" type="email" name="email" placeholder="Digite seu email">
+                </div>
+                <div class="cell">
+                    <label for="campo-senha">Senha</label>
+                    <br>
+                    <input id="campo-senha" type="password" name="senha" placeholder="Digite sua senha">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                <div class="cell">
+                    <label for="campo-nome">Nome</label>
+                    <br>
+                    <input id="campo-nome" type="text" name="nome" placeholder="Digite seu nome">
+                </div>
+                <div class="cell">
+                    <label for="campo-nascimento">Data de Nascimento<span style="float:right">dd/ mm/ aaaa</span></label>
+                    <br>
+                    <input id="campo-nascimento" type="date" name="data_de_nascimento" value="">
+                </div>
+                <div class="cell">
+                    <label for="campo-telefone">Telefone</label>
+                    <br>
+                    <input id="campo-telefone" type="text" name="telefone" placeholder="Digite seu número de telefone">
+                </div>
+            </fieldset>
+            <div class="buttons">
+                <button type="submit">Cadastrar</button>
+                <button type="reset">Cancelar</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
