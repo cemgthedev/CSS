@@ -2,7 +2,7 @@ import { Menu } from '@headlessui/react'
 import { Fragment } from 'react';
 
 const routes = [
-    {name: 'Home', href: '/'},
+    {name: 'Menu Dropdown', href: '/'},
     {name: 'PopUp', href: '/popup'}
 ];
 
