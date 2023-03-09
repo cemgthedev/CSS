@@ -10,8 +10,10 @@ body,figure {
     align-items: center;
 }
 
-img {
+figure {
     width: 500px;
-    height: 500px;
+    height: fit-content;
 }
+
+
 
