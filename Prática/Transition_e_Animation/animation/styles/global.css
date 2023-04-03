@@ -1,0 +1,33 @@
+body {
+    background-color: black;
+}
+
+@keyframes inflar {
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes rotacionar {
+    from {
+        transform: rotate(0deg) translateX(50%) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(50%) rotate(-360deg);
+    }
+}
+
+@keyframes flutuar {
+    100% {
+        transform: translateY(-64px);
+    }
+  }
+
+.circle {
+    background-image: linear-gradient(to top, red, yellow);
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin: 64px auto;
+    animation: flutuar 4s ease-in-out infinite alternate;
+}
