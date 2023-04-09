@@ -9,8 +9,9 @@ body {
     margin: 0px auto;
     margin-top: 64px;
     border-radius: 100%;
-    transition-property: background-color, width, height;
-    transition-duration: 1s;
+    transition-property: background-color, width, height; // propriedades a observar a transição
+    transition-duration: 1s; // duração da transição completa
+    transition-delay: 1s;    // tempo até começar a transição
 }
 
 #bubble:hover {
