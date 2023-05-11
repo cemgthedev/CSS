@@ -29,5 +29,5 @@ body {
     height: 150px;
     border-radius: 100%;
     margin: 64px auto;
-    animation: flutuar 4s ease-in-out infinite alternate;
+    animation: rotacionar 4s ease-in-out infinite alternate;
 }
