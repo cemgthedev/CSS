@@ -1,0 +1,298 @@
+:root {
+    --slate-50:#f8fafc;
+    --zinc-950: #09090b;
+    --cyan-500: #06b6d4;
+    --cyan-300: #67e8f9;
+    --violet-500: #8b5cf6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3, p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+p {
+    font-size: 14pt;
+}
+
+/* início: css da header */
+header {
+    background-color: var(--zinc-950);
+    color: var(--slate-50);
+    height: 20vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+/*
+    Ao trabalhar com box-sizing:border-box podemos desconsiderar nav e li
+    na estilização (acabam servindo apenas para semântica).
+*/
+
+/* selecionando todos os filhos diretos de header */
+header > * {
+    opacity: 0;
+    animation: surgir 1s ease-in 250ms forwards; /* forwards mantém o estado final da animação surgir */
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li a {
+    color: var(--slate-50);
+    padding: 8px;
+    font-size: larger;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition-property: color, background-color;
+    transition-duration: 250ms;
+}
+
+header nav ul li:first-child a {
+    background-color: var(--slate-50);
+    color: var(--zinc-950);
+}
+
+header .box-user button[data-toggle="modal"] {
+    padding: 0;
+    border-radius: 100%;
+    border: none;
+    background: none;
+}
+
+header .box-user button[data-toggle="modal"] img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 100%;
+}
+
+header .box-user {
+    position: relative;
+}
+
+header .box-user .modal {
+    background-color: var(--slate-50);
+    border: solid 1pt var(--cyan-500);
+    position: absolute;
+    transform: translateX(-100%);
+    width: fit-content;
+    height: fit-content;
+    padding: 8px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+}
+
+header .box-user button[data-toggle="modal"]:focus + .modal {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+header #toggle-options ul {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+header #toggle-options ul li a {
+    color: var(--zinc-950);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+/* fim: css da header */
+
+/* início: css da main */
+main {
+    display: flex;
+    height: 80vh; /* a header tem 20vh, então sobram 80vh para a main */
+}
+
+main aside:nth-child(1) {
+    background-color: var(--slate-50);
+    color: var(--zinc-950);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px 48px 24px 48px;
+    overflow: auto;
+}
+
+main aside:nth-child(1) figure img {
+    width: 100%;
+}
+
+main aside:nth-child(1) figure {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+main aside:nth-child(1) figure figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+main aside:nth-child(2) {
+    background-color: var(--violet-500);
+    flex-basis: 25%;
+    overflow: auto;
+}
+
+main aside::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  
+main aside::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+  
+main aside::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+main aside:nth-child(2) figure {
+    background-color: var(--slate-50);
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 8px;
+    height: 140px;
+    transition: box-shadow;
+    transition-duration: 250;
+}
+
+main aside:nth-child(2) figure img {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+}
+
+main aside:nth-child(2) figure figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    line-height: 16px;
+}
+
+/* fim: css da main */
+
+/* início: css do footer */
+footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: 80vh; /* a header tem 20vh, então sobram 80vh para o footer que aparece com a rolagem da página */
+    animation: gradiente-fluindo 2s ease-in-out infinite alternate;
+}
+
+footer div {
+    /*
+        a melhor forma de fazer um efeito glasmorphic é a seguinte:
+            - use radial-gradient
+            - use três cores partindo de um slate ou zinco forte(700 a 950) para um fraco(400 a 600) e a cor do background fraca(400 a 600)
+            - use opacidades de 0.3 a 0.6 para dar o efeito final de vidro
+    */
+    background-image: radial-gradient(circle,#33415594, #64748b85, #14b8a560 );
+    color: var(--slate-50);
+    width: fit-content;
+    padding: 32px;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+    transform: translateY(50%);
+}
+/* fim: css do footer */
+
+/* animações */
+
+@keyframes piscar {
+    from {
+        box-shadow: 0px 0px 20px var(--zinc-950);
+    }
+    to {
+        box-shadow: 0px 0px 20px var(--cyan-500);
+    }
+}
+
+@keyframes surgir {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gradiente-fluindo {
+    from {
+        background-image: radial-gradient(circle, var(--cyan-500), var(--cyan-300));
+    }
+    to {
+        background-image: radial-gradient(circle, var(--cyan-300), var(--cyan-500));
+    }
+}
+
+/* events */
+
+header nav ul li a:hover {
+    background-color: var(--slate-50);
+    color: var(--zinc-950);
+}
+
+header nav ul li a:focus {
+    background-color: var(--slate-50);
+    color: var(--zinc-950);
+}
+
+header img:hover {
+    cursor: pointer;
+    animation: piscar 1s ease-in-out infinite alternate;
+}
+
+header #toggle-options ul li a:hover {
+    color: var(--cyan-500);
+}
+
+main aside:nth-child(2) figure:hover {
+    box-shadow: 4px 4px 10px -4px var(--zinc-950);
+}

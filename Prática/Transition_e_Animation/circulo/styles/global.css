@@ -2,22 +2,28 @@ body {
     background-color: black;
 }
 
-#bubble {
+@keyframes animacao {
+    from {
+        background-color: aqua;
+    }
+    to {
+        background-color: red;
+    }
+}
+
+#circle {
     height: 150px;
     width: 150px;
     background-color: blue;
     margin: 0px auto;
     margin-top: 64px;
     border-radius: 100%;
-    transition-property: background-color, width, height; // propriedades a observar a transição
+    transition-property: background-color; // propriedades a observar a transição
+    animation-name: animacao; // nome da animação keyframe
+    animation-direction: alternate;
+    animation-iteration-count: infinite; // numero de repetições da animação
     transition-duration: 1s; // duração da transição completa
     transition-delay: 1s;    // tempo até começar a transição
-}
-
-#bubble:hover {
-    transition-property: background-color, width, height;
-    background-color: red;
-    height: 200px;
-    width: 200px;
-    transition-duration: 1s;
+    animation-timing-function: ease-in-out; // ritmo da animação (linear, ease, ease-in, ease-out, ease-in-out)
+    animation-fill-mode: forwards; // comportamento keyframe (forwards, backwards e both)
 }
